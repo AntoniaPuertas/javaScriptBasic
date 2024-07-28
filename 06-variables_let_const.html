@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables let const</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="01-javascript-introduccion.html">01. Introducción</a>
+          <a href="02-que-es.html">02. ¿Qué es?</a>
+          <a href="03-HolaMundo.html">03. Hola Mundo</a>
+          <a href="04-HolaMundo.html">04. Hola Mundo 2</a>
+          <a href="05-variables.html">05. Variables</a>
+          <a href="06-variables_let_const.html">06. let y const</a>
+          <a href="07-tipos_de_datos.html">07. Tipos de datos</a>
+          <a href="08-tipos_de_datos.html">08. Operadores</a>
+          <a href="09-string-methods.html">09. Strings</a>
+          <a href="10-datos-numericos.html">10. Numbers</a>
+          <a href="11-operando-con-numeros.html">11. Operando</a>
+          <a href="12-concatenacion-template.html">12. Concatenación</a>
+          <a href="13-booleanos.html">13. Booleanos</a>
+        </div>
+      </div>
+    <header>
+        <span id="hambur" onclick="openNav()">&#9776;</span>
+        <h1>Variables en JavaScript</h1>
+    </header>
+
+    <h2>Variables con let</h2>
+    <ul>
+        <li>let sustituye a var</li>
+        <li>se declaran igual</li>
+        <li>siguen las mismas reglas para nombrarlas</li>
+        <li>la diferencia está en el alcance de la variable:
+            <ul>
+                <li>el alcance (scope) o acceso de let  se limita al bloque dónde se declara</li>
+                <li>var se declara ly accede de forma global</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Variables con const</h2>
+    <ul>
+        <li>No se puede inicializar una variable sin valor</li>
+        <li>No se puede modificar su valor</li>
+        <li>const es una constante</li>
+    </ul>
+
+    <h3>Resumen:</h3>
+    <p>Utiliza let a no ser que estés muy seguro de que el valor de la variable no va a cambiar</p>
+
+    <footer>
+        <nav>
+            <a href="05-variables.html">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                Variables
+            </a>
+            <a href="07-tipos_de_datos.html">
+                Tipos de datos
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+    </footer>
+        <!-- Código JavaScript -->
+     <!-- Se recomienda que vaya antes de la etiqueta de cierre de body -->
+     <script src="js/06-variables_let_const.js"></script>
+     <script src="js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables var</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="01-javascript-introduccion.html">01. Introducción</a>
+          <a href="02-que-es.html">02. ¿Qué es?</a>
+          <a href="03-HolaMundo.html">03. Hola Mundo</a>
+          <a href="04-HolaMundo.html">04. Hola Mundo 2</a>
+          <a href="05-variables.html">05. Variables</a>
+          <a href="06-variables_let_const.html">06. let y const</a>
+          <a href="07-tipos_de_datos.html">07. Tipos de datos</a>
+          <a href="08-tipos_de_datos.html">08. Operadores</a>
+          <a href="09-string-methods.html">09. Strings</a>
+          <a href="10-datos-numericos.html">10. Numbers</a>
+          <a href="11-operando-con-numeros.html">11. Operando</a>
+          <a href="12-concatenacion-template.html">12. Concatenación</a>
+          <a href="13-booleanos.html">13. Booleanos</a>
+        </div>
+      </div>
+      <header>
+          <span id="hambur" onclick="openNav()">&#9776;</span>
+          <h1>Variables en JavaScript</h1>
+        </header>
+
+    <ul>
+        <li>¿Qué es una variable?</li>
+        <li>¿Qué son las palabras reservadas?</li>
+    </ul>
+
+    <h2>Características de JavaScript</h2>
+    <ul>
+        <li>El punto y coma al final de cada instrucción es opcional</li>
+        <li>No hay que indicar el tipo de dato al declarar / inicializar una variable</li>
+        <li>Es de tipo dinámico:
+            <ul>
+                <li>Puedes cambiar el tipo de dato de una variable</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Reglas para los nombres de las variables</h2>
+    <ul>
+        <li>Pueden contener letras, números, guión medio y guión bajo</li>
+        <li>No pueden comenzar por un número</li>
+        <li>No pueden comenzar por un guión medio</li>
+        <li>JavaScript es CaseSensitive: Distingue entre mayúsculas y minúsculas</li>
+    </ul>
+    <h2>Estilos de nomenclatura para las variables</h2>
+    <ul>
+        <li>nombre_alumno (underscore)</li>
+        <li>nombreAlumno (Camelcase)</li>
+        <li>NombreAlumno (Pascal Case) (Se utiliza para crear clases)</li>
+    </ul>
+
+        <!-- Código JavaScript -->
+     <!-- Se recomienda que vaya antes de la etiqueta de cierre de body -->
+     <script src="js/05-variables.js"></script>
+     <footer>
+        <nav>
+            <a href="04-HolaMundo.html">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                Hola Mundo 2
+            </a>
+            <a href="06-variables_let_const.html">
+                let y const
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+     </footer>
+
+     <script src="js/sidebar.js"></script>
+</body>
+</html>
