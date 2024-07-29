@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'use strict', Object.freeze() y Object.seal() en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .section {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .example {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .example h3 {
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>'use strict', Object.freeze() y Object.seal() en JavaScript</h1>
+    
+    <p>En este documento, explicaremos el modo estricto ('use strict') y dos métodos útiles para controlar la mutabilidad de los objetos: Object.freeze() y Object.seal().</p>
+
+    <div class="section">
+        <h2>1. 'use strict'</h2>
+        <p>'use strict' es una directiva que activa el modo estricto en JavaScript. Este modo ayuda a escribir código más seguro y a detectar errores comunes.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                'use strict';<br>
+                <br>
+                x = 3.14; // Esto lanzará un error porque x no está declarada<br>
+                <br>
+                function ejemplo() {<br>
+                &nbsp;&nbsp;y = 5; // Esto también lanzará un error<br>
+                }<br>
+                <br>
+                ejemplo();
+            </code>
+        </div>
+        
+        <p>Beneficios del modo estricto:</p>
+        <ul>
+            <li>Convierte errores silenciosos en errores que lanzan excepciones.</li>
+            <li>Corrige errores que hacen difícil para los motores de JavaScript realizar optimizaciones.</li>
+            <li>Prohíbe cierta sintaxis que probablemente será definida en futuras versiones de ECMAScript.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. Object.freeze()</h2>
+        <p>Object.freeze() congela un objeto: impide que se le agreguen nuevas propiedades, que se eliminen las existentes y que se modifiquen sus valores.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const persona = {<br>
+                &nbsp;&nbsp;nombre: "Ana",<br>
+                &nbsp;&nbsp;edad: 28<br>
+                };<br>
+                <br>
+                Object.freeze(persona);<br>
+                <br>
+                persona.edad = 29; // Esto no tendrá efecto<br>
+                persona.ciudad = "Madrid"; // Esto no agregará la propiedad<br>
+                <br>
+                console.log(persona); // Imprime: { nombre: "Ana", edad: 28 }
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Object.seal()</h2>
+        <p>Object.seal() sella un objeto: impide que se agreguen o eliminen propiedades, pero permite modificar las propiedades existentes.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const coche = {<br>
+                &nbsp;&nbsp;marca: "Toyota",<br>
+                &nbsp;&nbsp;modelo: "Corolla"<br>
+                };<br>
+                <br>
+                Object.seal(coche);<br>
+                <br>
+                coche.modelo = "Camry"; // Esto sí funciona<br>
+                coche.año = 2021; // Esto no agregará la propiedad<br>
+                <br>
+                console.log(coche); // Imprime: { marca: "Toyota", modelo: "Camry" }
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Diferencias entre Object.freeze() y Object.seal()</h2>
+        <p>Aunque ambos métodos restringen la modificación de objetos, tienen algunas diferencias clave:</p>
+        
+        <ul>
+            <li><strong>Object.freeze():</strong>
+                <ul>
+                    <li>No permite agregar nuevas propiedades.</li>
+                    <li>No permite eliminar propiedades existentes.</li>
+                    <li>No permite modificar los valores de las propiedades existentes.</li>
+                </ul>
+            </li>
+            <li><strong>Object.seal():</strong>
+                <ul>
+                    <li>No permite agregar nuevas propiedades.</li>
+                    <li>No permite eliminar propiedades existentes.</li>
+                    <li>Permite modificar los valores de las propiedades existentes.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="example">
+            <h3>Ejemplo comparativo:</h3>
+            <code>
+                const objetoCongelado = { a: 1, b: 2 };<br>
+                const objetoSellado = { x: 10, y: 20 };<br>
+                <br>
+                Object.freeze(objetoCongelado);<br>
+                Object.seal(objetoSellado);<br>
+                <br>
+                objetoCongelado.a = 100; // No tiene efecto<br>
+                objetoSellado.x = 100; // Sí tiene efecto<br>
+                <br>
+                console.log(objetoCongelado); // Imprime: { a: 1, b: 2 }<br>
+                console.log(objetoSellado); // Imprime: { x: 100, y: 20 }
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: Tanto Object.freeze() como Object.seal() son útiles para controlar la mutabilidad de los objetos, pero Object.freeze() es más restrictivo. Elige el método que mejor se adapte a tus necesidades de inmutabilidad.</p>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos en JavaScript para Principiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .section {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .example {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .example h3 {
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objetos en JavaScript para Principiantes</h1>
+    
+    <p>Los objetos en JavaScript son estructuras que nos permiten agrupar datos relacionados y funcionalidades. Pensemos en ellos como contenedores que pueden almacenar diferentes tipos de información.</p>
+
+    <div class="section">
+        <h2>1. Creación de Objetos</h2>
+        <p>Hay varias formas de crear objetos en JavaScript. La más común es usando llaves {}.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                let persona = {<br>
+                &nbsp;&nbsp;nombre: "Ana",<br>
+                &nbsp;&nbsp;edad: 28,<br>
+                &nbsp;&nbsp;ciudad: "Madrid"<br>
+                };<br>
+                <br>
+                console.log(persona); // Imprime: {nombre: "Ana", edad: 28, ciudad: "Madrid"}
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Propiedades de Objetos</h2>
+        <p>Las propiedades son los datos almacenados en un objeto. Cada propiedad tiene un nombre (clave) y un valor.</p>
+        
+        <div class="example">
+            <h3>Accediendo a Propiedades:</h3>
+            <code>
+                console.log(persona.nombre); // Imprime: Ana<br>
+                console.log(persona["edad"]); // Imprime: 28
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Modificando Objetos</h2>
+        <p>Podemos cambiar los valores de las propiedades existentes o añadir nuevas propiedades a un objeto.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                persona.edad = 29; // Cambiando una propiedad existente<br>
+                persona.profesion = "Ingeniera"; // Añadiendo una nueva propiedad<br>
+                <br>
+                console.log(persona); <br>
+                // Imprime: {nombre: "Ana", edad: 29, ciudad: "Madrid", profesion: "Ingeniera"}
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Métodos de Objetos</h2>
+        <p>Los métodos son funciones que pertenecen a un objeto. Nos permiten realizar acciones con los datos del objeto.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                let coche = {<br>
+                &nbsp;&nbsp;marca: "Toyota",<br>
+                &nbsp;&nbsp;modelo: "Corolla",<br>
+                &nbsp;&nbsp;año: 2020,<br>
+                &nbsp;&nbsp;arrancar: function() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("El coche está arrancando");<br>
+                &nbsp;&nbsp;}<br>
+                };<br>
+                <br>
+                coche.arrancar(); // Imprime: El coche está arrancando
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Objetos Anidados</h2>
+        <p>Los objetos pueden contener otros objetos como propiedades, permitiendo estructuras de datos más complejas.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                let escuela = {<br>
+                &nbsp;&nbsp;nombre: "Colegio San Juan",<br>
+                &nbsp;&nbsp;direccion: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;calle: "Calle Mayor",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;numero: 123,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ciudad: "Barcelona"<br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;numEstudiantes: 500<br>
+                };<br>
+                <br>
+                console.log(escuela.direccion.ciudad); // Imprime: Barcelona
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Uso Práctico de Objetos</h2>
+        <p>Los objetos son muy útiles para organizar información relacionada y crear estructuras de datos complejas.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Lista de Contactos</h3>
+            <code>
+                let listaContactos = [<br>
+                &nbsp;&nbsp;{nombre: "Juan", telefono: "123-456-7890", email: "juan@email.com"},<br>
+                &nbsp;&nbsp;{nombre: "María", telefono: "098-765-4321", email: "maria@email.com"},<br>
+                &nbsp;&nbsp;{nombre: "Carlos", telefono: "555-555-5555", email: "carlos@email.com"}<br>
+                ];<br>
+                <br>
+                console.log(listaContactos[1].nombre); // Imprime: María
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: Los objetos son una parte fundamental de JavaScript y se utilizan extensamente en el desarrollo web moderno. Practicar con objetos te ayudará a escribir código más organizado y eficiente.</p>
+</body>
+</html>

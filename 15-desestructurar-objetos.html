@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring de Objetos en JavaScript para Principiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .section {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .example {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .example h3 {
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Destructuring de Objetos en JavaScript para Principiantes</h1>
+    
+    <p>El destructuring de objetos es una característica de JavaScript que nos permite extraer propiedades de un objeto y asignarlas a variables de una manera más concisa y legible.</p>
+
+    <div class="section">
+        <h2>1. Destructuring Básico</h2>
+        <p>El destructuring nos permite "desempaquetar" propiedades de un objeto en variables separadas.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const persona = {<br>
+                &nbsp;&nbsp;nombre: "Ana",<br>
+                &nbsp;&nbsp;edad: 28,<br>
+                &nbsp;&nbsp;ciudad: "Madrid"<br>
+                };<br>
+                <br>
+                const { nombre, edad } = persona;<br>
+                <br>
+                console.log(nombre); // Imprime: Ana<br>
+                console.log(edad);   // Imprime: 28
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Asignando Nombres Diferentes a las Variables</h2>
+        <p>Podemos asignar nombres diferentes a las variables durante el destructuring.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const { nombre: nombreCompleto, ciudad: ubicacion } = persona;<br>
+                <br>
+                console.log(nombreCompleto); // Imprime: Ana<br>
+                console.log(ubicacion);      // Imprime: Madrid
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Valores por Defecto</h2>
+        <p>Podemos asignar valores por defecto en caso de que la propiedad no exista en el objeto.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const { nombre, edad, profesion = "Desconocida" } = persona;<br>
+                <br>
+                console.log(profesion); // Imprime: Desconocida
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Destructuring de Objetos Anidados</h2>
+        <p>También podemos hacer destructuring de propiedades en objetos anidados.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                const estudiante = {<br>
+                &nbsp;&nbsp;nombre: "Carlos",<br>
+                &nbsp;&nbsp;edad: 20,<br>
+                &nbsp;&nbsp;direccion: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;calle: "Calle Mayor",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ciudad: "Barcelona"<br>
+                &nbsp;&nbsp;}<br>
+                };<br>
+                <br>
+                const { nombre, direccion: { ciudad } } = estudiante;<br>
+                <br>
+                console.log(nombre); // Imprime: Carlos<br>
+                console.log(ciudad); // Imprime: Barcelona
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Destructuring en Funciones</h2>
+        <p>El destructuring es muy útil en los parámetros de las funciones para extraer propiedades de objetos pasados como argumentos.</p>
+        
+        <div class="example">
+            <h3>Ejemplo:</h3>
+            <code>
+                function imprimirInfo({ nombre, edad }) {<br>
+                &nbsp;&nbsp;console.log(`${nombre} tiene ${edad} años.`);<br>
+                }<br>
+                <br>
+                const persona = { nombre: "Luis", edad: 35, ciudad: "Valencia" };<br>
+                imprimirInfo(persona); // Imprime: Luis tiene 35 años.
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Uso Práctico del Destructuring</h2>
+        <p>El destructuring es muy útil cuando trabajamos con APIs o grandes objetos de configuración.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Configuración de una Aplicación</h3>
+            <code>
+                const configuracionApp = {<br>
+                &nbsp;&nbsp;servidor: "https://miservidor.com",<br>
+                &nbsp;&nbsp;puerto: 3000,<br>
+                &nbsp;&nbsp;baseDatos: "miDB",<br>
+                &nbsp;&nbsp;opciones: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;timeout: 5000,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cache: true<br>
+                &nbsp;&nbsp;}<br>
+                };<br>
+                <br>
+                const { servidor, puerto, opciones: { timeout } } = configuracionApp;<br>
+                <br>
+                console.log(`Conectando a ${servidor}:${puerto} con timeout de ${timeout}ms`);
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: El destructuring de objetos hace que tu código sea más limpio y fácil de leer, especialmente cuando trabajas con objetos complejos o necesitas extraer múltiples propiedades de un objeto.</p>
+</body>
+</html>

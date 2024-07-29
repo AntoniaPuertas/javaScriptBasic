@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Spread Operator en JavaScript para Principiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .section {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .example {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .example h3 {
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>El Spread Operator en JavaScript para Principiantes</h1>
+    
+    <p>El spread operator (operador de propagación) en JavaScript es una característica muy útil que nos permite expandir elementos. Se representa con tres puntos (...) y tiene varios usos prácticos.</p>
+
+    <div class="section">
+        <h2>1. ¿Qué es el Spread Operator?</h2>
+        <p>El spread operator permite expandir un iterable (como un array o una cadena) en lugares donde se esperan cero o más argumentos o elementos.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Uso con Arrays</h2>
+        <p>Uno de los usos más comunes del spread operator es con arrays.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Combinar Arrays</h3>
+            <code>
+                const frutas = ['manzana', 'banana'];<br>
+                const verduras = ['zanahoria', 'brócoli'];<br>
+                const alimentos = [...frutas, ...verduras];<br>
+                <br>
+                console.log(alimentos); <br>
+                // Imprime: ['manzana', 'banana', 'zanahoria', 'brócoli']
+            </code>
+        </div>
+
+        <div class="example">
+            <h3>Ejemplo: Copiar un Array</h3>
+            <code>
+                const original = [1, 2, 3];<br>
+                const copia = [...original];<br>
+                <br>
+                console.log(copia); // Imprime: [1, 2, 3]
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Uso con Objetos</h2>
+        <p>El spread operator también se puede usar con objetos para crear copias o combinar objetos.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Combinar Objetos</h3>
+            <code>
+                const persona = { nombre: 'Ana', edad: 28 };<br>
+                const trabajo = { puesto: 'Desarrolladora', empresa: 'TechCo' };<br>
+                const perfil = { ...persona, ...trabajo };<br>
+                <br>
+                console.log(perfil);<br>
+                // Imprime: { nombre: 'Ana', edad: 28, puesto: 'Desarrolladora', empresa: 'TechCo' }
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Uso en Funciones</h2>
+        <p>El spread operator es útil para pasar arrays como argumentos a funciones.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Pasar Array como Argumentos</h3>
+            <code>
+                function sumar(a, b, c) {<br>
+                &nbsp;&nbsp;return a + b + c;<br>
+                }<br>
+                <br>
+                const numeros = [1, 2, 3];<br>
+                console.log(sumar(...numeros)); // Imprime: 6
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Uso con Strings</h2>
+        <p>El spread operator puede convertir una cadena en un array de caracteres.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: String a Array</h3>
+            <code>
+                const palabra = 'Hola';<br>
+                const letras = [...palabra];<br>
+                <br>
+                console.log(letras); // Imprime: ['H', 'o', 'l', 'a']
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Uso Práctico: Rest Parameters</h2>
+        <p>El spread operator también se puede usar como "rest parameter" en funciones para recoger múltiples argumentos en un array.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Rest Parameters</h3>
+            <code>
+                function mostrarArgumentos(...args) {<br>
+                &nbsp;&nbsp;console.log(args);<br>
+                }<br>
+                <br>
+                mostrarArgumentos(1, 2, 3, 4); // Imprime: [1, 2, 3, 4]
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: El spread operator es una herramienta muy versátil en JavaScript. Te permite escribir código más limpio y conciso en muchas situaciones, especialmente cuando trabajas con arrays y objetos.</p>
+</body>
+</html>
