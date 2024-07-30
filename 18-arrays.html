@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays en JavaScript para Principiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .section {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .example {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .example h3 {
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays en JavaScript para Principiantes</h1>
+    
+    <p>Los arrays en JavaScript son estructuras de datos que nos permiten almacenar múltiples elementos en una sola variable. Son muy útiles para manejar listas de información.</p>
+
+    <div class="section">
+        <h2>1. Creación de Arrays</h2>
+        <p>Hay varias formas de crear un array en JavaScript:</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Creación de Arrays</h3>
+            <code>
+                // Usando corchetes<br>
+                let frutas = ['manzana', 'banana', 'naranja'];<br>
+                <br>
+                // Usando el constructor Array<br>
+                let numeros = new Array(1, 2, 3, 4, 5);<br>
+                <br>
+                console.log(frutas);  // Imprime: ['manzana', 'banana', 'naranja']<br>
+                console.log(numeros); // Imprime: [1, 2, 3, 4, 5]
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Acceso a Elementos del Array</h2>
+        <p>Podemos acceder a elementos individuales del array usando su índice (posición). Los índices comienzan en 0.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Acceso a Elementos</h3>
+            <code>
+                let colores = ['rojo', 'verde', 'azul'];<br>
+                <br>
+                console.log(colores[0]); // Imprime: rojo<br>
+                console.log(colores[2]); // Imprime: azul
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Modificación de Arrays</h2>
+        <p>Podemos modificar elementos existentes o añadir nuevos elementos a un array.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Modificación y Adición</h3>
+            <code>
+                let animales = ['perro', 'gato', 'conejo'];<br>
+                <br>
+                animales[1] = 'pájaro';  // Modificar un elemento<br>
+                animales.push('pez');    // Añadir al final<br>
+                <br>
+                console.log(animales); <br>
+                // Imprime: ['perro', 'pájaro', 'conejo', 'pez']
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Longitud de un Array</h2>
+        <p>Podemos conocer cuántos elementos tiene un array usando la propiedad length.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Longitud del Array</h3>
+            <code>
+                let dias = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes'];<br>
+                console.log(dias.length); // Imprime: 5
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Métodos Comunes de Arrays</h2>
+        <p>JavaScript proporciona varios métodos útiles para trabajar con arrays:</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Métodos de Arrays</h3>
+            <code>
+                let números = [1, 2, 3, 4, 5];<br>
+                <br>
+                números.push(6);         // Añade al final<br>
+                números.unshift(0);      // Añade al principio<br>
+                let último = números.pop();     // Elimina y devuelve el último<br>
+                let primero = números.shift();  // Elimina y devuelve el primero<br>
+                <br>
+                console.log(números);   // Imprime: [1, 2, 3, 4, 5]<br>
+                console.log(último);    // Imprime: 6<br>
+                console.log(primero);   // Imprime: 0
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Iteración sobre Arrays</h2>
+        <p>Podemos recorrer todos los elementos de un array usando bucles o métodos específicos.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Iteración con for</h3>
+            <code>
+                let frutas = ['manzana', 'banana', 'cereza'];<br>
+                <br>
+                for (let i = 0; i < frutas.length; i++) {<br>
+                &nbsp;&nbsp;console.log(frutas[i]);<br>
+                }<br>
+                // Imprime:<br>
+                // manzana<br>
+                // banana<br>
+                // cereza
+            </code>
+        </div>
+
+        <div class="example">
+            <h3>Ejemplo: Iteración con forEach</h3>
+            <code>
+                frutas.forEach(function(fruta) {<br>
+                &nbsp;&nbsp;console.log(fruta);<br>
+                });<br>
+                // Imprime lo mismo que el ejemplo anterior
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: Los arrays son estructuras de datos muy versátiles en JavaScript. Te permiten organizar y manipular colecciones de datos de manera eficiente. Practicar con arrays es esencial para dominar la programación en JavaScript.</p>
+</body>
+</html>
