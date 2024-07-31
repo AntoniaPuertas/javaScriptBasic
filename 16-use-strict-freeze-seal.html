@@ -3,48 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>'use strict', Object.freeze() y Object.seal() en JavaScript</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #2980b9;
-        }
-        .section {
-            background-color: #ecf0f1;
-            border-left: 4px solid #3498db;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        code {
-            background-color: #f9f9f9;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: Consolas, Monaco, 'Andale Mono', monospace;
-        }
-        .example {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-        .example h3 {
-            color: #e74c3c;
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>use strict...</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
-    <h1>'use strict', Object.freeze() y Object.seal() en JavaScript</h1>
+    <div id="header">
+
+    </div>
+    <header>
+        <span id="hambur" onclick="openNav()">&#9776;</span>
+        <h1>'use strict', Object.freeze() y Object.seal() en JavaScript</h1>
+    </header>
     
     <p>En este documento, explicaremos el modo estricto ('use strict') y dos métodos útiles para controlar la mutabilidad de los objetos: Object.freeze() y Object.seal().</p>
 
@@ -159,5 +131,20 @@
     </div>
 
     <p>Recuerda: Tanto Object.freeze() como Object.seal() son útiles para controlar la mutabilidad de los objetos, pero Object.freeze() es más restrictivo. Elige el método que mejor se adapte a tus necesidades de inmutabilidad.</p>
+
+    <footer>
+        <nav>
+            <a href="15-desestructurar-objetos.html">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                Desestructurar Objetos
+            </a>
+            <a href="17-operador-spread.html">
+                Spread
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

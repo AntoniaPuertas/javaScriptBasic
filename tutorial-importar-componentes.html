@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Importar componentes HTML con JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #f36d33;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+        }
+        .highlight {
+            background-color: #ffffd7;
+        }
+        .demo-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tutorial: Importar componentes HTML con JavaScript</h1>
+    
+    <h2>Introducción</h2>
+    <p>En este tutorial, aprenderemos cómo importar componentes HTML (como encabezados y pies de página) en múltiples páginas web utilizando JavaScript. Esta técnica nos ayuda a mantener nuestro código DRY (Don't Repeat Yourself) y facilita el mantenimiento de nuestro sitio web.</p>
+
+    <h2>Paso 1: Preparar los archivos HTML</h2>
+    <p>Primero, necesitamos crear archivos separados para nuestros componentes reutilizables. Por ejemplo, <code>header.html</code> y <code>footer.html</code>.</p>
+
+    <h3>header.html</h3>
+    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="acerca.html"&gt;Acerca de&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="contacto.html"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+    <h3>footer.html</h3>
+    <pre><code>&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2024 Mi Sitio Web. Todos los derechos reservados.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+    <h2>Paso 2: Preparar la página principal</h2>
+    <p>En tu archivo HTML principal (por ejemplo, <code>index.html</code>), necesitas crear contenedores para el encabezado y el pie de página:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Página Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    <span class="highlight">&lt;div id="header"&gt;&lt;/div&gt;</span>
+    
+    &lt;main&gt;
+        &lt;h1&gt;Contenido Principal&lt;/h1&gt;
+        &lt;p&gt;Este es el contenido único de esta página.&lt;/p&gt;
+    &lt;/main&gt;
+    
+    <span class="highlight">&lt;div id="footer"&gt;&lt;/div&gt;</span>
+
+    <span class="highlight">&lt;script src="importar-componentes.js"&gt;&lt;/script&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h2>Paso 3: Crear el script de JavaScript</h2>
+    <p>Ahora, creamos un archivo JavaScript llamado <code>importar-componentes.js</code> con el siguiente contenido:</p>
+
+    <pre><code>document.addEventListener('DOMContentLoaded', function() {
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        });
+});</code></pre>
+
+    <h2>Explicación del código JavaScript</h2>
+    <p>Vamos a desglosar este código:</p>
+    <ol>
+        <li><strong>Event Listener:</strong> <code>document.addEventListener('DOMContentLoaded', function() { ... });</code>
+            <ul>
+                <li>Este evento se dispara cuando el documento HTML inicial se ha cargado y analizado completamente.</li>
+                <li>Asegura que nuestro código se ejecute solo después de que la estructura básica del DOM esté lista.</li>
+            </ul>
+        </li>
+        <li><strong>Fetch API:</strong> <code>fetch('header.html')</code>
+            <ul>
+                <li>La función <code>fetch()</code> hace una petición HTTP para obtener el contenido de <code>header.html</code>.</li>
+                <li>Devuelve una Promise que se resuelve con la respuesta a la petición.</li>
+            </ul>
+        </li>
+        <li><strong>Procesamiento de la respuesta:</strong> <code>.then(response => response.text())</code>
+            <ul>
+                <li>Convierte la respuesta a texto.</li>
+                <li>También devuelve una Promise que se resuelve con el contenido del archivo como una cadena de texto.</li>
+            </ul>
+        </li>
+        <li><strong>Inserción del contenido:</strong> <code>.then(data => { document.getElementById('header').innerHTML = data; });</code>
+            <ul>
+                <li>Selecciona el elemento con id 'header' en el documento HTML.</li>
+                <li>Establece su <code>innerHTML</code> al texto recibido del archivo <code>header.html</code>.</li>
+            </ul>
+        </li>
+    </ol>
+    <p>El proceso se repite de manera similar para <code>footer.html</code>.</p>
+
+    <h2>Demostración</h2>
+    <p>Aquí tienes una demostración interactiva de cómo funciona este código:</p>
+
+    <div class="demo-container">
+        <div id="demo-header"></div>
+        <main>
+            <h1>Contenido Principal</h1>
+            <p>Este es el contenido único de esta página de demostración.</p>
+        </main>
+        <div id="demo-footer"></div>
+        <button onclick="cargarComponentes()">Cargar Componentes</button>
+    </div>
+
+    <script>
+        function cargarComponentes() {
+            const headerContent = `<header style="background-color: #f0f0f0; padding: 10px;">
+                <h2>Encabezado de Demostración</h2>
+                <nav>
+                    <a href="#" style="margin-right: 10px;">Inicio</a>
+                    <a href="#" style="margin-right: 10px;">Acerca de</a>
+                    <a href="#">Contacto</a>
+                </nav>
+            </header>`;
+            
+            const footerContent = `<footer style="background-color: #f0f0f0; padding: 10px; text-align: center;">
+                <p>&copy; 2024 Sitio Web de Demostración</p>
+            </footer>`;
+
+            document.getElementById('demo-header').innerHTML = headerContent;
+            document.getElementById('demo-footer').innerHTML = footerContent;
+        }
+    </script>
+
+    <h2>Conclusión</h2>
+    <p>Esta técnica de importar componentes HTML con JavaScript ofrece varias ventajas:</p>
+    <ul>
+        <li>Mantiene tu código DRY (Don't Repeat Yourself).</li>
+        <li>Facilita el mantenimiento al centralizar los componentes comunes.</li>
+        <li>Es una solución del lado del cliente que no requiere configuración del servidor.</li>
+    </ul>
+    <p>Sin embargo, ten en cuenta algunas limitaciones:</p>
+    <ul>
+        <li>Requiere que JavaScript esté habilitado en el navegador del usuario.</li>
+        <li>Puede causar un ligero parpadeo al cargar la página.</li>
+        <li>No es ideal para SEO, ya que el contenido se carga dinámicamente.</li>
+    </ul>
+    <p>Para proyectos más complejos, considera usar herramientas de construcción como Webpack o frameworks como React, Vue o Angular, que ofrecen soluciones más robustas para la reutilización de componentes.</p>
+</body>
+</html>

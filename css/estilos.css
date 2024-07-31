@@ -36,16 +36,16 @@ body {
   
   .overlay-content {
     position: relative;
-    top: 10%;
-    width: 100%;
+    top: 0%;
+    width: 50%;
     margin-top: 3%;
-    margin-left: 10%;;
+    margin-left: 10%;
   }
   
   .overlay a {
-    padding: 0.5rem;
+    padding: 0.2rem;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.1rem;
     color: var(--grey);
     display: block;
     transition: 0.3s;
@@ -63,6 +63,9 @@ body {
   }
   
   @media screen and (max-height: 450px) {
+    .overlay-content {
+        width: 90%;
+      }
     .overlay a {font-size: 20px}
     .overlay .closebtn {
     font-size: 40px;

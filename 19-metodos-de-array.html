@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Arrays</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="header">
+
+    </div>
+    <header>
+        <span id="hambur" onclick="openNav()">&#9776;</span>
+        <h1>Métodos de Array: include(), some() y filter() en JavaScript</h1>
+    </header>
+
+    
+    <p>En este documento, exploraremos tres métodos útiles para trabajar con arrays en JavaScript: include(), some() y filter(). Estos métodos nos ayudan a buscar elementos y filtrar datos en arrays de manera eficiente.</p>
+
+    <div class="section">
+        <h2>1. Método include()</h2>
+        <p>El método include() determina si un array incluye un determinado elemento, devolviendo true o false según corresponda.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Uso de include()</h3>
+            <code>
+                const frutas = ['manzana', 'banana', 'naranja', 'uva'];<br>
+                <br>
+                console.log(frutas.includes('banana')); // Imprime: true<br>
+                console.log(frutas.includes('kiwi'));   // Imprime: false<br>
+                <br>
+                // También podemos especificar desde qué posición empezar a buscar<br>
+                console.log(frutas.includes('manzana', 1)); // Imprime: false
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Método some()</h2>
+        <p>El método some() comprueba si al menos un elemento del array cumple con la condición implementada por la función proporcionada.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Uso de some()</h3>
+            <code>
+                const numeros = [1, 2, 3, 4, 5];<br>
+                <br>
+                // Comprobar si hay algún número par<br>
+                const hayPar = numeros.some(function(numero) {<br>
+                &nbsp;&nbsp;return numero % 2 === 0;<br>
+                });<br>
+                <br>
+                console.log(hayPar); // Imprime: true<br>
+                <br>
+                // Usando arrow function<br>
+                const hayMayorDiez = numeros.some(numero => numero > 10);<br>
+                console.log(hayMayorDiez); // Imprime: false
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Método filter()</h2>
+        <p>El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Uso de filter()</h3>
+            <code>
+                const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];<br>
+                <br>
+                // Filtrar números pares<br>
+                const pares = numeros.filter(function(numero) {<br>
+                &nbsp;&nbsp;return numero % 2 === 0;<br>
+                });<br>
+                <br>
+                console.log(pares); // Imprime: [2, 4, 6, 8, 10]<br>
+                <br>
+                // Usando arrow function<br>
+                const mayoresQueCinco = numeros.filter(numero => numero > 5);<br>
+                console.log(mayoresQueCinco); // Imprime: [6, 7, 8, 9, 10]
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Ejemplo Práctico: Combinando Métodos</h2>
+        <p>Veamos cómo podemos combinar estos métodos en un escenario más práctico.</p>
+        
+        <div class="example">
+            <h3>Ejemplo: Filtrado de Productos</h3>
+            <code>
+                const productos = [<br>
+                &nbsp;&nbsp;{ nombre: 'Laptop', precio: 1000, enStock: true },<br>
+                &nbsp;&nbsp;{ nombre: 'Teléfono', precio: 500, enStock: false },<br>
+                &nbsp;&nbsp;{ nombre: 'Tablet', precio: 300, enStock: true },<br>
+                &nbsp;&nbsp;{ nombre: 'Auriculares', precio: 50, enStock: true }<br>
+                ];<br>
+                <br>
+                // Verificar si hay algún producto fuera de stock<br>
+                const hayProductosFueraStock = productos.some(producto => !producto.enStock);<br>
+                console.log('¿Hay productos fuera de stock?', hayProductosFueraStock);<br>
+                <br>
+                // Filtrar productos en stock y con precio menor a 400<br>
+                const productosBaratos = productos.filter(producto => producto.enStock && producto.precio < 400);<br>
+                console.log('Productos baratos en stock:', productosBaratos);
+            </code>
+        </div>
+    </div>
+
+    <p>Recuerda: Estos métodos son muy útiles para trabajar con arrays y pueden hacer tu código más limpio y eficiente. Practica con diferentes tipos de datos y condiciones para familiarizarte con su uso.</p>
+
+    <footer>
+        <nav>
+            <a href="18-arrays.html">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                Arrays
+            </a>
+            <a href="#">
+                Métodos de Arrays
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
